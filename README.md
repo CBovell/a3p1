@@ -1,6 +1,8 @@
 # a3p1
 Simple Python - Postgres application
 
+DEMO LINK: https://youtu.be/Zv5gdEhDw24
+
 Setup instructions
 Ensure Postgres and pgAdmin4 are installed,
 Ensure Python 3  and pip are installed,
