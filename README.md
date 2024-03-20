@@ -15,5 +15,6 @@ Scroll to the try block in the application, around line 57, and enter the inform
 
 To create the table with the given schema run the createTable() function in the application.
 To populate the table with the default data run the populateTable() function in the application
+Alternativly, you run these queries using the query tool on the newly created database.
 
 The rest of the functions provided work as described.
