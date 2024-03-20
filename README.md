@@ -18,3 +18,5 @@ To populate the table with the default data run the populateTable() function in 
 Alternativly, you run these queries using the query tool on the newly created database.
 
 The rest of the functions provided work as described.
+
+Test by un-commenting the functions as desired, starts at line 68.
