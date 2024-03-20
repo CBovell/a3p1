@@ -9,8 +9,8 @@ cur=None
 
 def createTable():
     print("Creating Table")
-    script = ''' CREATE TABLE IF NOT EXISTS student (
-                    student_id      int PRIMARY KEY AUTO AUTO_INCREMENT,
+    script = ''' CREATE TABLE IF NOT EXISTS students (
+                    student_id      SERIAL PRIMARY KEY,
                     first_name      varchar(255) NOT NULL,
                     last_name       varchar(255) NOT NULL,
                     email           varchar(255) NOT NULL UNIQUE,
@@ -22,7 +22,8 @@ def populateTable():
     print("Populating Table")
     pop_s = 'INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES (%s, %s, %s, %s)'
     pop_v = [('John', 'Doe', 'john.doe@example.com', '2023-09-01'), ('Jane', 'Smith', 'jane.smith@example.com', '2023-09-01'), ('Jim', 'Beam', 'jim.beam@example.com', '2023-09-02')]
-    cur.execute(pop_s, pop_v)
+    for entry in pop_v:
+        cur.execute(pop_s,entry)
     connection.commit()
 
 def getAllStudents():
@@ -75,10 +76,10 @@ try:
     #addStudent("New", "Person", "newperson@example.com", '2024-03-18')
 
     #print("Testing updateStudent()")
-    #updateStudentEmail(6, 'newestemail@example.com')
+    #updateStudentEmail(4, 'newestemail@example.com')
 
-    print("Testing deleteStudent()")
-    deleteStudent(6)
+    #print("Testing deleteStudent()")
+    #deleteStudent(4)
 
 
 
