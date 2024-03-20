@@ -2,8 +2,8 @@
 Simple Python - Postgres application
 
 Setup instructions
-Ensure Postgres and pgAdmin4 are installed
-Ensure Python 3  and pip are installed
+Ensure Postgres and pgAdmin4 are installed,
+Ensure Python 3  and pip are installed,
 Run pip install psycopg2-binary in the terminal
 
 Open pgAdmin4, create a new database and name it something like a3p1. Open the query tool on this database.
