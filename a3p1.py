@@ -6,7 +6,7 @@ cur=None
 
 
 
-
+#This function creates a table based on the provided schema
 def createTable():
     print("Creating Table")
     script = ''' CREATE TABLE IF NOT EXISTS students (
@@ -18,6 +18,7 @@ def createTable():
     cur.execute(script)
     connection.commit()
 
+#This function populates the students table with the default, provided data
 def populateTable():
     print("Populating Table")
     pop_s = 'INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES (%s, %s, %s, %s)'
@@ -26,12 +27,14 @@ def populateTable():
         cur.execute(pop_s,entry)
     connection.commit()
 
+#This function fetches all of the students currently in the database
 def getAllStudents():
     print('Fetching all students')
     cur.execute('SELECT * FROM students')
     print(cur.fetchall())
     connection.commit()
 
+#This function takes in paramaters firstname, lastname, email, and enrollmentdate and creates a new entry in the database based on this provided information
 def addStudent(first_name, last_name, email, enrollment_date):
     print("Adding a student")
     insert_s = 'INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES (%s,%s,%s,%s)'
@@ -39,6 +42,7 @@ def addStudent(first_name, last_name, email, enrollment_date):
     cur.execute(insert_s, insert_v)
     connection.commit()
 
+#This function takes in a unique studentID and a new email and updates the correct entry in the database with the new information
 def updateStudentEmail(student_id, new_email):
     print('Updating student')
     update_s = 'UPDATE students SET email = %s WHERE student_id = %s'
@@ -46,6 +50,7 @@ def updateStudentEmail(student_id, new_email):
     cur.execute(update_s,update_v)
     connection.commit()
 
+#This function deletes a student in the database in based on their unique studentID
 def deleteStudent(student_id):
     print('Deleting student')
     delete_s = 'DELETE FROM students WHERE student_id = %s'
@@ -55,6 +60,7 @@ def deleteStudent(student_id):
 
 
 try:
+    #Needed for connetion, replace with own data
     connection = psycopg2.connect(
         host='localhost',
         dbname='a3p1',
@@ -64,7 +70,9 @@ try:
         )
 
     cur=connection.cursor()
-    
+
+    #Testing starts here, un-comment the desired function to run
+
     #createTable()
 
     #populateTable()
